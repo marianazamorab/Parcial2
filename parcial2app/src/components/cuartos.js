@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import logo from "../media/cuartos.jpg";
-import Detalle from "./detalledispositivo";
 
 const Cuartos = (props) => {
   let url =
@@ -38,7 +37,26 @@ const Cuartos = (props) => {
       <div className="col-2">
         {sele && (
           <div className="col-4">
-            <Detalle data={cuarto}></Detalle>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">ID</th>
+                  <th scope="col">Device</th>
+                  <th scope="col">Value</th>
+                </tr>
+              </thead>
+              <tbody>
+                {cuarto.devices.map((item) => (
+                  <tr>
+                    <th scope="row">1</th>
+                    <td>{item.name}</td>
+                    <td>{item.id}</td>
+                    <td>{item.desired.value}{item.desired.unit}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
         )}
       </div>
